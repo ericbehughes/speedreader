@@ -38,12 +38,12 @@ class Database {
     }
 
     function fetchAllUser($offset, $limit) {
-        $stmt = $this->pdo->prepare("SELECT id, symbol, company AS companyName FROM STOCKS OFFSET ? LIMIT ?;");
+        $stmt = $this->pdo->prepare("SELECT id, email FROM USERS;");
 
         $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
         $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
 
-        if ($users = $stmt->execute([$offset, $limit])) {
+        if ($users = $stmt->execute([])) {
             while ($row = $stmt->fetch()) {
                 $array[] = $row;
             }
@@ -54,7 +54,7 @@ class Database {
     }
 
     function fetchCountOfUsers() {
-        $stmt = $this->pdo->prepare("SELECT count(id) FROM STOCKS;");
+        $stmt = $this->pdo->prepare("SELECT count(id) FROM USERS;");
         if ($users = $stmt->execute()) {
             $array = $stmt->fetch();
             return $array[0];
@@ -64,21 +64,21 @@ class Database {
     }
 
     function createItemsDb() {
-        $stmt = $this->pdo->prepare("DROP TABLE if exists users;");
+        $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
         $stmt->execute();
 
         // create table
         $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
                 id SERIAL PRIMARY KEY,
-                symbol varchar(10) NOT NULL UNIQUE,
-                company varchar(255) NOT NULL UNIQUE);');
+                email varchar(64) NOT NULL UNIQUE,
+                password varchar(255) NOT NULL UNIQUE);');
         $stmt->execute();
     }
 
     function insertIntoDB($user) {
 
-        $stmt = $this->pdo->prepare("INSERT INTO users(symbol, company) VALUES (?, ?);");
-        if ($stmt->execute([$user->getSymbol(), $user->getCompanyName()])) {
+        $stmt = $this->pdo->prepare("INSERT INTO users(email, password) VALUES (?, ?);");
+        if ($stmt->execute([$user->getEmail(), $user->getPassword()])) {
             syslog(1, 'added record');
         } else {
             syslog(1, 'did not add record');

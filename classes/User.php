@@ -13,4 +13,9 @@
  */
 class User {
     //put your code here
+    private $id;
+    private $email;
+    private $p;
+            
+            
 }
