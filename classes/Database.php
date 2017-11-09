@@ -23,7 +23,7 @@ class Database {
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // load csv file
             //$users = $this->loadUserDateFromCSV("./users.csv");
-            //$this->createItemsDb();
+            
 //            $user = new User();
 //            $user->setEmail("eric@mail.com");
 //            $user->setPassword("password");
@@ -54,17 +54,31 @@ class Database {
     }
     
     function isUserAlreadyRegistered($email){
-        $stmt = $this->pdo->prepare("select count(id) from users where email = ?");
-        if ($stmt->execute([$email])) {
-            if ($stmt->fetchAll() > 0)
-            syslog(1, 'already in db');
-            return false;
-        } 
-        
-        return true;
-        
-        
-        
+        $stmt = $this->pdo->prepare("SELECT email FROM USERS");
+        if ($stmt->execute()) {
+            if ($row = $stmt->fetch()){
+                return true;
+            }
+        }
+        return false;
+
+    }
+    
+    function createUserFromEmail($user_email){
+         $stmt = $this->pdo->prepare("select * from users where email = ?");
+
+        //$this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+        //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+
+        if ($stmt->execute([$user_email])) {
+
+            if ($row = $stmt->fetch()) {
+                $email = $row;
+            }
+            return $email;
+        }
+
+        return null;
     }
 
     function fetchCountOfUsers() {
@@ -77,16 +91,16 @@ class Database {
         return null;
     }
 
-    public function createItemsDb() {
-        $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
-        $stmt->execute();
-
-        // create table
-        $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
-                id SERIAL PRIMARY KEY,
-                email varchar(64) NOT NULL UNIQUE,
-                password varchar(255) NOT NULL UNIQUE);');
-        $stmt->execute();
+    function createItemsDb() {
+//        $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
+//        $stmt->execute();
+//
+//        // create table
+//        $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
+//                id SERIAL PRIMARY KEY,
+//                email varchar(64) NOT NULL UNIQUE,
+//                password varchar(255) NOT NULL UNIQUE);');
+//        $stmt->execute();
     }
 
     function insertIntoDB($user) {
