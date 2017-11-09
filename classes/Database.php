@@ -11,7 +11,6 @@ class Database {
 
     protected $pdo;
 
-//put your code here
     function __construct() {
 
         $dsn = 'pgsql:dbname=homestead;host=localhost';
@@ -23,11 +22,12 @@ class Database {
             $this->pdo = new PDO($dsn, $user, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // load csv file
-            $users = $this->loadUserDateFromCSV("./user_data.csv");
-            $this->createItemsDb();
-            foreach ($users as $value) {
-                $this->insertIntoDB($value);
-            }
+            //$users = $this->loadUserDateFromCSV("./users.csv");
+            //$this->createItemsDb();
+//            $user = new User();
+//            $user->setEmail("eric@mail.com");
+//            $user->setPassword("password");
+//            $this->insertIntoDB($user);
         } catch (PDOException $e) {
             
         }
@@ -52,6 +52,20 @@ class Database {
 
         return null;
     }
+    
+    function isUserAlreadyRegistered($email){
+        $stmt = $this->pdo->prepare("select count(id) from users where email = ?");
+        if ($stmt->execute([$email])) {
+            if ($stmt->fetchAll() > 0)
+            syslog(1, 'already in db');
+            return false;
+        } 
+        
+        return true;
+        
+        
+        
+    }
 
     function fetchCountOfUsers() {
         $stmt = $this->pdo->prepare("SELECT count(id) FROM USERS;");
@@ -63,7 +77,7 @@ class Database {
         return null;
     }
 
-    function createItemsDb() {
+    public function createItemsDb() {
         $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
         $stmt->execute();
 

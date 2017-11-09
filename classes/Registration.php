@@ -30,8 +30,10 @@ class Registration
      * the function "__construct()" automatically starts whenever an object of this class is created,
      * you know, when you do "$registration = new Registration();"
      */
-    public function __construct()
-    {
+    public function __construct($connection)
+    {   
+        
+        $this->db_connection = $connection;
         if (isset($_POST["register"])) {
             $this->registerNewUser();
         }
@@ -73,19 +75,17 @@ class Registration
             && ($_POST['user_password_new'] === $_POST['user_password_repeat'])
         ) {
             // create a database connection
-            $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-            // change character set to utf8 and check it
-            if (!$this->db_connection->set_charset("utf8")) {
-                $this->errors[] = $this->db_connection->error;
-            }
+            
+            //$this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            
+            
 
             // if no connection errors (= working database connection)
-            if (!$this->db_connection->connect_errno) {
+            if (true) {
 
                 // escaping, additionally removing everything that could be (html/javascript-) code
-                $user_name = $this->db_connection->real_escape_string(strip_tags($_POST['user_name'], ENT_QUOTES));
-                $user_email = $this->db_connection->real_escape_string(strip_tags($_POST['user_email'], ENT_QUOTES));
+                //$user_name = $this->db_connection->real_escape_string(strip_tags($_POST['user_name'], ENT_QUOTES));
+                $user_email = $_POST['user_email'];
 
                 $user_password = $_POST['user_password_new'];
 
@@ -93,23 +93,14 @@ class Registration
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
-                $sql = "SELECT * FROM users WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
-                $query_check_user_name = $this->db_connection->query($sql);
-
-                if ($query_check_user_name->num_rows == 1) {
+                if ($this->db_connection->isUserAlreadyRegistered($user_email)) {
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $sql = "INSERT INTO users (user_name, user_password_hash, user_email)
-                            VALUES('" . $user_name . "', '" . $user_password_hash . "', '" . $user_email . "');";
-                    $query_new_user_insert = $this->db_connection->query($sql);
+                    $user = new User($user_email, $user_password_hash);
+                    $this->db_connection->insertIntoDB($user);
 
-                    // if user has been added successfully
-                    if ($query_new_user_insert) {
-                        $this->messages[] = "Your account has been created successfully. You can now log in.";
-                    } else {
-                        $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
-                    }
+                    // check return of insertIntoDB
                 }
             } else {
                 $this->errors[] = "Sorry, no database connection.";
