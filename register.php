@@ -1,10 +1,10 @@
 <?php
 
 // include the configs / constants for the database connection
-//require("classes/Database.php");
+require_once("classes/Database.php");
 // load the registration class
 require_once("classes/Registration.php");
-//$db = new Database();
+$db = new Database();
 
 // create the registration object. when this object is created, it will do all registration stuff automatically
 // so this single line handles the entire registration process.

@@ -67,8 +67,8 @@ class Database {
     function createUserFromEmail($user_email){
          $stmt = $this->pdo->prepare("select * from users where email = ?");
 
-        //$this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
-        //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+        $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
 
         if ($stmt->execute([$user_email])) {
 
