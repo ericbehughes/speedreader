@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+session_regenerate_id();
 // include the configs / constants for the database connection
 require_once("classes/Database.php");
 // load the registration class
@@ -10,4 +11,4 @@ $db = new Database();
 // so this single line handles the entire registration process.
 $registration = new Registration($db);
 // show the register view (with the registration form, and messages/errors)
-include("views/register.php");
+include("views/register_form.php");

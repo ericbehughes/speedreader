@@ -17,7 +17,7 @@ if (isset($login)) {
 <!-- login form box -->
 <form method="post" action="index.php" name="loginform">
 
-    <label for="login_input_user_email">user_email</label>
+    <label for="login_input_user_email">Email</label>
     <input id="login_input_user_email" class="login_input" type="text" name="user_email" required />
 
     <label for="login_input_password">Password</label>

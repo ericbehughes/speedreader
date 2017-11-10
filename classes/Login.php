@@ -28,6 +28,8 @@ class Login {
         
         // create/read session, absolutely necessary
         session_start();
+        session_regenerate_id();
+
         $this->db_connection = $connection;
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)

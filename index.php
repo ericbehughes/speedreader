@@ -5,17 +5,13 @@
 require_once("classes/Database.php");
 require_once("classes/User.php");
 $db = new Database();
-$user = new User("email2@email.com", "passwordd");
-//$db->isUserAlreadyRegistered("");
-//$db->insertIntoDB($user);
-$db->isUserAlreadyRegistered("");
-
 
 // load the login class
 require_once("classes/Login.php");
 // create a login object. when this object is created, it will do all login/logout stuff automatically
 // so this single line handles the entire login process. in consequence, you can simply ...
-$login = new Login($db);
+if (!isset($login) )
+    $login = new Login($db);
 
 // ... ask if we are logged in here:
 if ($login->isUserLoggedIn() == true) {

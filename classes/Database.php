@@ -54,8 +54,8 @@ class Database {
     }
     
     function isUserAlreadyRegistered($email){
-        $stmt = $this->pdo->prepare("SELECT email FROM USERS");
-        if ($stmt->execute()) {
+        $stmt = $this->pdo->prepare("SELECT email FROM USERS WHERE email = ?");
+        if ($stmt->execute([$email])) {
             if ($row = $stmt->fetch()){
                 return true;
             }
