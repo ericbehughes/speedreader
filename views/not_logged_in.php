@@ -25,7 +25,7 @@ if (isset($login)) {
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="form_styling.css">
-    <title>Document</title>
+    <title>Speed Reader</title>
 </head>
 <body>
 <!-- login form box -->
@@ -47,21 +47,24 @@ if (isset($login)) {
     you can substitue the span of reauth email for a input with the email and
     include the remember me checkbox
     -->
-<div class="container" style="width: 450px; margin-top: 100px">
+<div class="container" style="width: 450px; margin-top: 50px">
+    <h3>Speed Reader</h3>
     <div class="card card-container">
-        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-        <img id="profile-img" class="profile-img-card" src="https://images6.moneysavingexpert.com/images/img-broadband_speed_test.png" />
-        <p id="profile-name" class="profile-name-card"></p>
+
+        <img id="profile-img" style="margin-left: 25px"class="profile-img-card" src="https://images6.moneysavingexpert.com/images/img-broadband_speed_test.png" />
         <form method="post"   action="index.php" name="loginform" class="form-signin">
             <span id="reauth-email" class="reauth-email"></span>
-            <input id="login_input_user_email" name="user_email" required class="form-control" placeholder="Email address" autofocus>
-            <input id="login_input_password" name="user_password" type="password"  autocomplete="off" required class="form-control" placeholder="Password" required>
-            <div id="remember" class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
+            <div style="padding: 5px">
+                <input id="login_input_user_email" name="user_email" required class="form-control" placeholder="Email address" autofocus style="padding: 5px">
             </div>
-            <button class="btn btn-sm btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            <div style="padding: 5px">
+                <input id="login_input_password" name="user_password" type="password"  autocomplete="off" required class="form-control" placeholder="Password" required>
+            </div>
+
+            <div id="remember" class="checkbox">
+
+            </div>
+            <button class="btn btn-primary btn-block btn-signin" type="submit" name="login">Sign in</button>
 
         </form><!-- /form -->
         <a href="#" class="forgot-password">
