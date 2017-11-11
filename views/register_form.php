@@ -14,24 +14,45 @@ if (isset($registration)) {
 }
 ?>
 
-<!-- register form -->
-<form method="post" action="register.php" name="registerform">
 
-    <!-- the email input field uses a HTML5 email type check -->
-    <label for="login_input_email">User's email</label>
-    <input id="login_input_email" class="login_input" type="email" name="user_email"  value="eric@mail.com" required />
-    <br>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="form_styling.css">
+    <title>Speed Reader</title>
+</head>
+<body>
+<div class="container" style="width: 450px; margin-top: 50px">
+    <h3>Register</h3>
+    <div class="card card-container">
 
-    <label for="login_input_password_new">Password (min. 6 characters)</label>
-    <input id="login_input_password_new" class="login_input" type="password" name="user_password_new" value="password" pattern=".{6,}" required autocomplete="off" />
-    <br>
 
-    <label for="login_input_password_repeat">Repeat password</label>
-    <input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" value="password" pattern=".{6,}" required autocomplete="off" />
-    <br>
-    <input type="submit"  name="register" value="Register" />
+        <form method="post"   action="register.php" name="registerform" >
+            <span id="reauth-email" class="reauth-email"></span>
+            <div style="padding: 5px">
+                <input id="register_input_user_email" name="user_email" required class="form-control" placeholder="Email address" autofocus style="padding: 5px">
+            </div>
+            <div style="padding: 5px">
+                <input id="register_input_password" name="user_password_new" type="password"  autocomplete="off" required class="form-control" placeholder="Password" required>
+            </div>
 
-</form>
+            <div style="padding: 5px">
+                <input id="register_input_password_repeat" name="user_password_repeat" type="password"  autocomplete="off" required class="form-control" placeholder="Confirm Password" required>
+            </div>
+            </div>
 
-<!-- backlink -->
-<a href="index.php">Back to Login Page</a>
+            <button class="btn btn-primary btn-block btn-signin" type="submit" name="register">Register</button>
+
+        </form>
+    <a href="index.php">Back to Login Page</a>
+
+    </div><!-- /card-container -->
+</div><!-- /container -->
+</body>
+</html>

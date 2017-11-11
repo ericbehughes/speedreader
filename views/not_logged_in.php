@@ -28,25 +28,6 @@ if (isset($login)) {
     <title>Speed Reader</title>
 </head>
 <body>
-<!-- login form box -->
-<!--<form method="post" action="index.php" name="loginform">-->
-<!---->
-<!--    <label for="login_input_user_email">Email</label>-->
-<!--    <input id="login_input_user_email" name="user_email" required />-->
-<!---->
-<!--    <label for="login_input_password">Password</label>-->
-<!--    <input id="login_input_password" name="user_password" autocomplete="off" required />-->
-<!---->
-<!--    <input type="submit"  name="login" value="Log in" />-->
-<!---->
-<!--</form>-->
-
-
-
-<!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
-    -->
 <div class="container" style="width: 450px; margin-top: 50px">
     <h3>Speed Reader</h3>
     <div class="card card-container">
