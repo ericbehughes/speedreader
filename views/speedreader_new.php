@@ -1,3 +1,21 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ehugh
+ * Date: 11/11/2017
+ * Time: 5:39 PM
+ */
+
+require_once("classes/Database.php");
+$db = new Database();
+if (isset($_GET['id'])){
+
+    $line = $db->getLineById($_GET['id']);
+    echo $line[0]['line'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +28,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="views/form_styling.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Speed Reader</title>
     <script type="text/javascript">
 
@@ -31,38 +50,59 @@
         var speedReader = (function () {
 
 
-
-            var onPauseClick = function () {
-                clearInterval(intervalBetweenWordDisplay);
-            }
-
-            var getCurrentWord = function (currentLine) {
-
-                currentLineAsArray = currentLine.split(" ");
-                var i = 0;
-                if (typeof currentLine === 'string') {
-                    intervalBetweenWordDisplay = setInterval(function () {
-                        if (i < currentLineAsArray.length - 1) {
-                            currentWord.textContent = currentLineAsArray[i];
-                            i++;
-                        }
-                        else{
-                            clearInterval(intervalBetweenWordDisplay);
-                            alert('interval over');
-                        }
-                    }, 500);
-
+                var onPauseClick = function () {
+                    clearInterval(intervalBetweenWordDisplay);
                 }
 
+                var getCurrentWord = function (currentLine) {
 
-            };
+                    currentLineAsArray = currentLine.split(" ");
+                    var i = 0;
+                    if (typeof currentLine === 'string') {
+                        intervalBetweenWordDisplay = setInterval(function () {
+                            if (i < currentLineAsArray.length - 1) {
+                                currentWord.textContent = currentLineAsArray[i];
+                                i++;
+                            }
+                            else {
+                                clearInterval(intervalBetweenWordDisplay);
+                                alert('interval over');
+                            }
+                        }, 500);
 
+                    }
+
+
+                };
+
+
+                var onStartClick = function () {
+                console.log('inside on start click');
+                    $.ajax({
+                        type: "GET",
+                        url: "book.php",
+                        data: 'id=6',
+                        dataType: "html",
+                        success: function (msg) {
+                            $("#currentWord").html(msg);
+                            console.log('success');
+
+                        },
+                        error: function (xhr, status, errorThrown) {
+
+                            alert("Sorry, there was a problem!");
+                            console.log("Error: " + errorThrown);
+                            console.log("Status: " + status);
+                            console.dir(xhr);
+                        }
+
+                    });
+                };
 
 
                 var currentLine;
                 var isPaused;
                 var readSpeed;
-                var onStartClick;
                 var onPauseClick;
                 var currentWord;
                 var getLineFromDB;
@@ -92,8 +132,6 @@
                     //getCurrentWord(currentLine);
 
 
-
-
                 };
 
 
@@ -103,8 +141,7 @@
                     init: init
 
                 };
-            }
-        )();
+            })();
 
         window.onload = speedReader.init;
 

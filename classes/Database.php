@@ -49,12 +49,12 @@ class Database {
     }
 
     function getLineById($id){
-        $stmt = $this->pdo->prepare("SELECT id, email FROM USERS;");
+        $stmt = $this->pdo->prepare("SELECT line FROM BOOK where id = ?;");
 
         $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+        //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
 
-        if ($users = $stmt->execute([])) {
+        if ($users = $stmt->execute([$id])) {
             while ($row = $stmt->fetch()) {
                 $array[] = $row;
             }
@@ -127,7 +127,7 @@ class Database {
     }
 
 
-    function insertUserIntoUserTable($user) {
+    function insertIntoUserTable($user) {
 
         $stmt = $this->pdo->prepare("INSERT INTO users(email, password) VALUES (?, ?);");
         if ($stmt->execute([$user->getEmail(), $user->getPassword()])) {

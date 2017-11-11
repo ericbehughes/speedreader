@@ -93,7 +93,7 @@ class Registration
                 } else {
                     // write new user's data into database
                     $user = new User($user_email, $user_password_hash);
-                    $this->db_connection->insertIntoDB($user);
+                    $this->db_connection->insertIntoUserTable($user);
                     $_SESSION['user_login_status'] = 1;
                     $_SESSION['user_email'] = $user_email;
 
