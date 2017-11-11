@@ -4,7 +4,7 @@
     Try to close this browser tab and open it again. Still logged in! ;)
 
 <?php
-    include_once("speedreader.php");
+    include_once("speedreader_new.php");
 ?>
 
 <!-- because people were asking: "index.php?logout" is just my simplified form of "index.php?logout=true" -->
