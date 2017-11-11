@@ -89,7 +89,8 @@
                         pauseBtn.addEventListener('click', onPauseClick, false);
 
                     }
-                    getCurrentWord(currentLine);
+                    //getCurrentWord(currentLine);
+
 
 
 
