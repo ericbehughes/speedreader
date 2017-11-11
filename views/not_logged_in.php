@@ -1,19 +1,4 @@
-<?php
-// show potential errors / feedback (from login object)
-if (isset($login)) {
-    if ($login->errors) {
-        foreach ($login->errors as $error) {
-            echo $error;
-        }
-    }
-    if ($login->messages) {
-        foreach ($login->messages as $message) {
-            echo $message;
-        }
-    }
-}
 
-?>
 
 <!doctype html>
 <html lang="en">
@@ -42,6 +27,22 @@ if (isset($login)) {
                 <input id="login_input_password" name="user_password" type="password"  autocomplete="off" required class="form-control" placeholder="Password" required>
             </div>
 
+            <?php
+            // show potential errors / feedback (from login object)
+            if (isset($login)) {
+                if ($login->errors) {
+                    foreach ($login->errors as $error) {
+                        echo $error;
+                    }
+                }
+                if ($login->messages) {
+                    foreach ($login->messages as $message) {
+                        echo $message;
+                    }
+                }
+            }
+
+            ?>
             <div id="remember" class="checkbox">
 
             </div>

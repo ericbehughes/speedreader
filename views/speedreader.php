@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript Speed Reader 0.30</title>
+    <title>Speed Reader</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,29 +12,6 @@
     <title>Speed Reader</title>
     <script type="text/javascript">
 
-        /*!
-        The MIT License (MIT)
-
-        Copyright (c) 2016 Roy Harper
-
-        Permission is hereby granted, free of charge, to any person obtaining a copy
-        of this software and associated documentation files (the "Software"), to deal
-        in the Software without restriction, including without limitation the rights
-        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        copies of the Software, and to permit persons to whom the Software is
-        furnished to do so, subject to the following conditions:
-
-        The above copyright notice and this permission notice shall be included in all
-        copies or substantial portions of the Software.
-
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-        SOFTWARE.
-        */
 
         // Using the Revealing Module Pattern.
 
@@ -1230,7 +1207,7 @@
 
         #mainDiv
         {
-            width:720px;
+            width:700px;
             margin-left:auto;
             margin-right:auto;
             vertical-align:center;
@@ -1249,7 +1226,7 @@
         #outputTextElement
         {
             text-align:left;
-            font-size:42px;
+            font-size:30px;
             font-family:monospace;
             color:#000000; /* Uncomment for black text on white background */
             /* color:white; /* Uncomment for white text on black background */
@@ -1258,7 +1235,7 @@
         .outputText
         {
             text-align:left;
-            font-size:42px;
+            font-size:30px;
             font-family:monospace;
             color:#000000; /* Uncomment for black text on white background */
             /* color:white; /* Uncomment for white text on black background */
@@ -1333,17 +1310,13 @@
             background-color:#b0b0b0;
         }
     </style>
+
 </head>
 <body>
 
-<div class="container" >
-
-
-
-
-<div id="mainDiv" class="container" style="" >
+<div id="mainDiv" class="container" style="padding: 0" >
     <div class="card card-container" style="width:700px">
-    <br><br><br>
+    <br><br>
     <div id="outputDiv">
         <span class="outputText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_</span><br>
         <span id="outputTextElement">&nbsp;</span><br>

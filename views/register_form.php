@@ -1,18 +1,3 @@
-<?php
-// show potential errors / feedback (from registration object)
-if (isset($registration)) {
-    if ($registration->errors) {
-        foreach ($registration->errors as $error) {
-            echo $error;
-        }
-    }
-    if ($registration->messages) {
-        foreach ($registration->messages as $message) {
-            echo $message;
-        }
-    }
-}
-?>
 
 
 <!doctype html>
@@ -45,6 +30,22 @@ if (isset($registration)) {
             <div style="padding: 5px">
                 <input id="register_input_password_repeat" name="user_password_repeat" type="password"  autocomplete="off" required class="form-control" placeholder="Confirm Password" required>
             </div>
+
+            <?php
+            // show potential errors / feedback (from registration object)
+            if (isset($registration)) {
+                if ($registration->errors) {
+                    foreach ($registration->errors as $error) {
+                        echo $error;
+                    }
+                }
+                if ($registration->messages) {
+                    foreach ($registration->messages as $message) {
+                        echo $message;
+                    }
+                }
+            }
+            ?>
 
 
             <button class="btn btn-primary btn-block btn-signin" type="submit" name="register">Register</button>
