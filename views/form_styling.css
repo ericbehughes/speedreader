@@ -10,12 +10,9 @@ body, html {
     background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 
-.container{
-    width:400px;
-}
 
 .card-container.card {
-    max-width: 350px;
+    width: 550px;
     padding: 40px 40px;
 }
 
@@ -47,8 +44,8 @@ body, html {
 }
 
 .profile-img-card {
-    width: 96px;
-    height: 96px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 10px;
     display: block;
     -moz-border-radius: 50%;

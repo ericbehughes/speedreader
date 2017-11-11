@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd8f1ee0-619e-4222-b5d6-8567c7d780e3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/form_styling.css" afterPath="$PROJECT_DIR$/views/form_styling.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/not_logged_in.php" afterPath="$PROJECT_DIR$/views/not_logged_in.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/register_form.php" afterPath="$PROJECT_DIR$/views/register_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/speedreader.html" afterPath="$PROJECT_DIR$/views/speedreader.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,11 +29,10 @@
       <file leaf-file-name="not_logged_in.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/not_logged_in.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+            <state relative-caret-position="376">
+              <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_form.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="register_form.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/register_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+            <state relative-caret-position="462">
+              <caret line="27" column="31" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="27" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -52,6 +53,16 @@
                 <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_styling.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/form_styling.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,29 +77,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="speedreader.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="speedreader.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/speedreader.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8052">
-              <caret line="366" column="0" lean-forward="true" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+            <state relative-caret-position="398">
+              <caret line="1343" column="43" lean-forward="false" selection-start-line="1343" selection-start-column="43" selection-end-line="1343" selection-end-column="43" />
               <folding>
-                <element signature="e#62179#62185#0" expanded="true" />
-                <element signature="e#62185#62191#0" expanded="true" />
-                <element signature="e#62191#62197#0" expanded="true" />
-                <element signature="e#62197#62203#0" expanded="true" />
-                <element signature="e#62203#62209#0" expanded="true" />
-                <element signature="e#62209#62215#0" expanded="true" />
-                <element signature="e#62215#62221#0" expanded="true" />
-                <element signature="e#62221#62227#0" expanded="true" />
-                <element signature="e#62277#62283#1" expanded="true" />
-                <element signature="e#62328#62334#0" expanded="true" />
-                <element signature="e#62334#62340#0" expanded="true" />
-                <element signature="e#62340#62346#0" expanded="true" />
-                <element signature="e#62346#62352#0" expanded="true" />
-                <element signature="e#62352#62358#0" expanded="true" />
-                <element signature="e#62358#62364#0" expanded="true" />
-                <element signature="e#62364#62370#0" expanded="true" />
-                <element signature="e#62370#62376#0" expanded="true" />
+                <element signature="e#2021#60094#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#62868#62874#0" expanded="true" />
+                <element signature="e#62874#62880#0" expanded="true" />
+                <element signature="e#62880#62886#0" expanded="true" />
+                <element signature="e#62886#62892#0" expanded="true" />
+                <element signature="e#62892#62898#0" expanded="true" />
+                <element signature="e#62898#62904#0" expanded="true" />
+                <element signature="e#62904#62910#0" expanded="true" />
+                <element signature="e#62910#62916#0" expanded="true" />
+                <element signature="e#62966#62972#1" expanded="true" />
+                <element signature="e#63017#63023#0" expanded="true" />
+                <element signature="e#63023#63029#0" expanded="true" />
+                <element signature="e#63029#63035#0" expanded="true" />
+                <element signature="e#63035#63041#0" expanded="true" />
+                <element signature="e#63041#63047#0" expanded="true" />
+                <element signature="e#63047#63053#0" expanded="true" />
+                <element signature="e#63053#63059#0" expanded="true" />
+                <element signature="e#63059#63065#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,9 +136,11 @@
       <find>play</find>
       <find>isPlaying</find>
       <find>header</find>
-      <find>width</find>
       <find>container</find>
       <find>errors</find>
+      <find>width</find>
+      <find>card-container</find>
+      <find>body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/speedreader.html" />
         <option value="extensions::messaging" />
         <option value="$PROJECT_DIR$/classes/Database.php" />
         <option value="$PROJECT_DIR$/views/register.php" />
@@ -144,9 +158,10 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/views/logged_in.php" />
         <option value="$PROJECT_DIR$/views/form_js.js" />
-        <option value="$PROJECT_DIR$/views/form_styling.css" />
-        <option value="$PROJECT_DIR$/views/not_logged_in.php" />
         <option value="$PROJECT_DIR$/views/register_form.php" />
+        <option value="$PROJECT_DIR$/views/not_logged_in.php" />
+        <option value="$PROJECT_DIR$/views/form_styling.css" />
+        <option value="$PROJECT_DIR$/views/speedreader.html" />
       </list>
     </option>
   </component>
@@ -275,12 +290,12 @@
       <updated>1510248637757</updated>
       <workItem from="1510248639972" duration="5795000" />
       <workItem from="1510324261926" duration="3804000" />
-      <workItem from="1510343035019" duration="14978000" />
+      <workItem from="1510343035019" duration="15909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24577000" />
+    <option name="totallyTimeSpent" value="25508000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -316,7 +331,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/views/speedreader.html</url>
-          <line>694</line>
+          <line>702</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -397,23 +412,25 @@
         <state relative-caret-position="10076">
           <caret line="458" column="47" lean-forward="false" selection-start-line="458" selection-start-column="47" selection-end-line="458" selection-end-column="47" />
           <folding>
-            <element signature="e#62179#62185#0" expanded="true" />
-            <element signature="e#62185#62191#0" expanded="true" />
-            <element signature="e#62191#62197#0" expanded="true" />
-            <element signature="e#62197#62203#0" expanded="true" />
-            <element signature="e#62203#62209#0" expanded="true" />
-            <element signature="e#62209#62215#0" expanded="true" />
-            <element signature="e#62215#62221#0" expanded="true" />
-            <element signature="e#62221#62227#0" expanded="true" />
-            <element signature="e#62277#62283#1" expanded="true" />
-            <element signature="e#62328#62334#0" expanded="true" />
-            <element signature="e#62334#62340#0" expanded="true" />
-            <element signature="e#62340#62346#0" expanded="true" />
-            <element signature="e#62346#62352#0" expanded="true" />
-            <element signature="e#62352#62358#0" expanded="true" />
-            <element signature="e#62358#62364#0" expanded="true" />
-            <element signature="e#62364#62370#0" expanded="true" />
-            <element signature="e#62370#62376#0" expanded="true" />
+            <element signature="e#2021#60094#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#62868#62874#0" expanded="true" />
+            <element signature="e#62874#62880#0" expanded="true" />
+            <element signature="e#62880#62886#0" expanded="true" />
+            <element signature="e#62886#62892#0" expanded="true" />
+            <element signature="e#62892#62898#0" expanded="true" />
+            <element signature="e#62898#62904#0" expanded="true" />
+            <element signature="e#62904#62910#0" expanded="true" />
+            <element signature="e#62910#62916#0" expanded="true" />
+            <element signature="e#62966#62972#1" expanded="true" />
+            <element signature="e#63017#63023#0" expanded="true" />
+            <element signature="e#63023#63029#0" expanded="true" />
+            <element signature="e#63029#63035#0" expanded="true" />
+            <element signature="e#63035#63041#0" expanded="true" />
+            <element signature="e#63041#63047#0" expanded="true" />
+            <element signature="e#63047#63053#0" expanded="true" />
+            <element signature="e#63053#63059#0" expanded="true" />
+            <element signature="e#63059#63065#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -512,62 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/form_styling.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/speedreader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8052">
-          <caret line="366" column="0" lean-forward="true" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
-          <folding>
-            <element signature="e#62179#62185#0" expanded="true" />
-            <element signature="e#62185#62191#0" expanded="true" />
-            <element signature="e#62191#62197#0" expanded="true" />
-            <element signature="e#62197#62203#0" expanded="true" />
-            <element signature="e#62203#62209#0" expanded="true" />
-            <element signature="e#62209#62215#0" expanded="true" />
-            <element signature="e#62215#62221#0" expanded="true" />
-            <element signature="e#62221#62227#0" expanded="true" />
-            <element signature="e#62277#62283#1" expanded="true" />
-            <element signature="e#62328#62334#0" expanded="true" />
-            <element signature="e#62334#62340#0" expanded="true" />
-            <element signature="e#62340#62346#0" expanded="true" />
-            <element signature="e#62346#62352#0" expanded="true" />
-            <element signature="e#62352#62358#0" expanded="true" />
-            <element signature="e#62358#62364#0" expanded="true" />
-            <element signature="e#62364#62370#0" expanded="true" />
-            <element signature="e#62370#62376#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Registration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="107" column="25" lean-forward="false" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/not_logged_in.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -584,16 +545,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="107" column="25" lean-forward="false" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/not_logged_in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/form_styling.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/register_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        <state relative-caret-position="462">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/speedreader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="1343" column="43" lean-forward="false" selection-start-line="1343" selection-start-column="43" selection-end-line="1343" selection-end-column="43" />
+          <folding>
+            <element signature="e#2021#60094#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#62868#62874#0" expanded="true" />
+            <element signature="e#62874#62880#0" expanded="true" />
+            <element signature="e#62880#62886#0" expanded="true" />
+            <element signature="e#62886#62892#0" expanded="true" />
+            <element signature="e#62892#62898#0" expanded="true" />
+            <element signature="e#62898#62904#0" expanded="true" />
+            <element signature="e#62904#62910#0" expanded="true" />
+            <element signature="e#62910#62916#0" expanded="true" />
+            <element signature="e#62966#62972#1" expanded="true" />
+            <element signature="e#63017#63023#0" expanded="true" />
+            <element signature="e#63023#63029#0" expanded="true" />
+            <element signature="e#63029#63035#0" expanded="true" />
+            <element signature="e#63035#63041#0" expanded="true" />
+            <element signature="e#63041#63047#0" expanded="true" />
+            <element signature="e#63047#63053#0" expanded="true" />
+            <element signature="e#63053#63059#0" expanded="true" />
+            <element signature="e#63059#63065#0" expanded="true" />
           </folding>
         </state>
       </provider>

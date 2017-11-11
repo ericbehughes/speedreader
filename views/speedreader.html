@@ -2,6 +2,14 @@
 <html>
 <head>
     <title>JavaScript Speed Reader 0.30</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="views/form_styling.css">
+    <title>Speed Reader</title>
     <script type="text/javascript">
 
         /*!
@@ -1328,8 +1336,13 @@
 </head>
 <body>
 
-<div id="mainDiv">
+<div class="container" >
 
+
+
+
+<div id="mainDiv" class="container" style="" >
+    <div class="card card-container" style="width:700px">
     <br><br><br>
     <div id="outputDiv">
         <span class="outputText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_</span><br>
@@ -1372,6 +1385,8 @@ While reading, Spacebar pauses and resumes, Esc stops, Up Arrow increases the re
             <span class="UIText">Average words per minute: <span id="wpmDisplay"></span></span>
         </div>
     </div>
+    </div>
+</div>
 </div>
 </body>
 </html>
