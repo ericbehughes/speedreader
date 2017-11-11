@@ -1315,8 +1315,10 @@
 <body>
 
 <div id="mainDiv" class="container" style="padding: 0" >
+
     <div class="card card-container" style="width:700px">
-    <br><br>
+        <a href="index.php?logout">Logout</a>
+    <br>
     <div id="outputDiv">
         <span class="outputText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_</span><br>
         <span id="outputTextElement">&nbsp;</span><br>
