@@ -21,13 +21,8 @@ class Database {
         try {
             $this->pdo = new PDO($dsn, $user, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // load csv file
-            //$users = $this->loadUserDateFromCSV("./users.csv");
-            
-//            $user = new User();
-//            $user->setEmail("eric@mail.com");
-//            $user->setPassword("password");
-//            $this->insertIntoDB($user);
+            //$this->loadLinesIntoBookTable("");
+
         } catch (PDOException $e) {
             
         }
@@ -52,6 +47,23 @@ class Database {
 
         return null;
     }
+
+    function getLineById($id){
+        $stmt = $this->pdo->prepare("SELECT id, email FROM USERS;");
+
+        $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+
+        if ($users = $stmt->execute([])) {
+            while ($row = $stmt->fetch()) {
+                $array[] = $row;
+            }
+            return $array;
+        }
+
+        return null;
+    }
+
     
     function isUserAlreadyRegistered($email){
         $stmt = $this->pdo->prepare("SELECT email FROM USERS WHERE email = ?");
@@ -91,19 +103,31 @@ class Database {
         return null;
     }
 
-    function createItemsDb() {
-//        $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
-//        $stmt->execute();
-//
-//        // create table
-//        $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
-//                id SERIAL PRIMARY KEY,
-//                email varchar(64) NOT NULL UNIQUE,
-//                password varchar(255) NOT NULL UNIQUE);');
-//        $stmt->execute();
+    function createUsersTable() {
+        $stmt = $this->pdo->prepare("DROP TABLE if exists USERS;");
+        $stmt->execute();
+
+        // create table
+        $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                email varchar(64) NOT NULL UNIQUE,
+                password varchar(255) NOT NULL);');
+        $stmt->execute();
     }
 
-    function insertIntoDB($user) {
+    function createBookTable() {
+        $stmt = $this->pdo->prepare("DROP TABLE if exists BOOK;");
+        $stmt->execute();
+
+        // create table
+        $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS BOOK(
+                id SERIAL PRIMARY KEY,
+                line unlimited varchar NOT NULL);');
+        $stmt->execute();
+    }
+
+
+    function insertUserIntoUserTable($user) {
 
         $stmt = $this->pdo->prepare("INSERT INTO users(email, password) VALUES (?, ?);");
         if ($stmt->execute([$user->getEmail(), $user->getPassword()])) {
@@ -113,19 +137,38 @@ class Database {
         }
     }
 
-    function loadUserDateFromCSV($path) {
 
+    function insertLineIntoTable($line) {
+
+        $stmt = $this->pdo->prepare("INSERT INTO BOOK(line) VALUES (?);");
+        if ($stmt->execute([$line])) {
+            syslog(1, 'added record');
+        } else {
+            syslog(1, 'did not add record');
+        }
+    }
+
+    function loadLinesIntoBookTable($path) {
+
+
+        $path = 'http://www.textfiles.com/etext/FICTION/aesop11.txt';
         $file = fopen($path, "r");
-        $users = [];
-        while ($user = fgets($file)) {
-            trim($user);
-            $array = explode(",", $user);
-            $s = new User($array[0], $array[1]);
-            $users[] = $s;
+        //$lines = [];
+        $blankLineCount = 0;
+        while ($line = fgets($file)) {
+            $line = trim($line);
+            if (strlen($line) === 0 && $blankLineCount < 1){
+                $this->insertLineIntoTable($line);
+                $blankLineCount++;
+            }
+            elseif (strlen($line) > 0){
+                $this->insertLineIntoTable($line);
+                $blankLineCount = 0;
+
+            }
+
         }
         fclose($file);
-
-        return $users;
     }
 
 }
