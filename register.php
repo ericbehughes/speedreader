@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_regenerate_id();
-// include the configs / constants for the database connection
+// include the database connection
 require_once("classes/Database.php");
 // load the registration class
 require_once("classes/Registration.php");

@@ -6,17 +6,11 @@
  * @author ehugh
  */
 class Login {
-    /**
-     * @var object The database connection
-     */
+
     private $db_connection = null;
-    /**
-     * @var array Collection of error messages
-     */
+
     public $errors = array();
-    /**
-     * @var array Collection of success / neutral messages
-     */
+
     public $messages = array();
 
     /**
@@ -62,15 +56,13 @@ class Login {
                 // escape the POST stuff
                 $user_email = $_POST['user_email'];
 
-                // database query, getting all the info of the selected user (allows login via email address in the
-                // username field)
-                
+                // check if user is already registered
                 $result_of_login_check = $this->db_connection->isUserAlreadyRegistered($user_email);
 
                 // if this user exists
                 if ($result_of_login_check  == true) {
 
-                    //create user to get hash
+                    //create user from pdo to get hash
                     $userTemp = $this->db_connection->createUserFromEmail($user_email);
 
                     // using PHP 5.5's password_verify() function to check if the provided password fits

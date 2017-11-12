@@ -20,7 +20,7 @@
 
         /**
          *
-         *   getLineFromDB(): string
+         getLineFromDB(): string
          getCurrentWord(): string
          displayCurrentWord() : void
          isPlaying: boolean
@@ -29,18 +29,13 @@
          onPauseClick
          * @type {{init}}
          */
-
-
-
         var speedReader = (function () {
-
-
                 var onPauseClick = function () {
+                    currentWord =
                     clearInterval(intervalBetweenWordDisplay);
                 }
 
                 var getCurrentWord = function (currentLine) {
-
                     currentLineAsArray = currentLine.split(" ");
                     var i = 0;
                     if (typeof currentLine === 'string') {
@@ -58,13 +53,15 @@
                         }, 500);
 
                     }
-
-
                 };
 
-
+                // ajax call using jQuery
                 var onStartClick = function () {
                 console.log('inside on start click');
+                    getLineFromDB();
+                };
+
+               var getLineFromDB = function (){
                     $.ajax({
                         type: "GET",
                         url: "book.php",
@@ -80,31 +77,31 @@
                                 ++currentLineID
                                 onStartClick();
                             }
-
-
                         },
                         error: function (xhr, status, errorThrown) {
 
-                            alert("Sorry, there was a problem!");
+                            alert("Sorry, there was a problem retrieving the book!");
                             console.log("Error: " + errorThrown);
                             console.log("Status: " + status);
                             console.dir(xhr);
                         }
 
                     });
-                };
+                }
 
+
+                var resumeReading = function () {
+
+                }
 
                 var currentLine;
                 var isPaused;
                 var readSpeed;
                 var onPauseClick;
                 var currentWord;
-                var getLineFromDB;
                 var startBtn;
                 var pauseBtn;
                 var delayBetweenWords;
-                var currentSpaceIndex;
                 var currentLineAsArray;
                 var intervalBetweenWordDisplay;
                 var currentLineID;
@@ -127,11 +124,7 @@
 
                     }
                 };
-
-
                 return {
-                    // Declare public members.
-
                     init: init
 
                 };

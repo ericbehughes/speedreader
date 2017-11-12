@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,8 +45,6 @@
                 }
             }
             ?>
-
-
             <button class="btn btn-primary btn-block btn-signin" type="submit" name="register">Register</button>
 
         </form>

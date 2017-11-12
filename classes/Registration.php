@@ -13,26 +13,17 @@
  */
 class Registration
 {
-    /**
-     * @var object $db_connection The database connection
-     */
+
     private $db_connection = null;
-    /**
-     * @var array $errors Collection of error messages
-     */
+
     public $errors = array();
-    /**
-     * @var array $messages Collection of success / neutral messages
-     */
+
     public $messages = array();
 
-    /**
-     * the function "__construct()" automatically starts whenever an object of this class is created,
-     * you know, when you do "$registration = new Registration();"
-     */
+
     public function __construct($connection)
     {   
-        
+        // assign db connection
         $this->db_connection = $connection;
         //check if post is from the register form
         session_regenerate_id();
@@ -62,29 +53,19 @@ class Registration
             $this->errors[] = "Password and password repeat are not the same";
         } elseif (strlen($_POST['user_password_new']) < 6) {
             $this->errors[] = "Password has a minimum length of 6 characters";
-        } elseif (!empty($_POST['user_email'])
+        }
+        // valid data
+            elseif (!empty($_POST['user_email'])
             && strlen($_POST['user_email']) <= 64
             && filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
             && !empty($_POST['user_password_new'])
             && !empty($_POST['user_password_repeat'])
-            && ($_POST['user_password_new'] === $_POST['user_password_repeat'])
-        ) {
-            // create a database connection
-            
-            //$this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-            
-            
+            && ($_POST['user_password_new'] === $_POST['user_password_repeat'])) {
 
-            // if no connection errors (= working database connection)
+            //sanitize the post data then begin
             if (true) {
-
-                // escaping, additionally removing everything that could be (html/javascript-) code
-                //$user_name = $this->db_connection->real_escape_string(strip_tags($_POST['user_name'], ENT_QUOTES));
                 $user_email = $_POST['user_email'];
-
                 $user_password = $_POST['user_password_new'];
-
-                //hash password
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
