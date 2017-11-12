@@ -25,6 +25,12 @@ body, html {
     cursor: default;
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
 /*
  * Card component
  */
