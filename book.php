@@ -14,8 +14,10 @@
 require_once("classes/Database.php");
 $db = new Database();
 if ($_GET['id']){
-
     $line = $db->getLineById($_GET['id']);
     echo $line;
+}
+elseif ($_GET['user_read_speed']){
+
 }
 
