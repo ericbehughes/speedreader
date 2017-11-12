@@ -1,8 +1,13 @@
 
 
 <?php
-setcookie("user_read_speed", $_SESSION['user_read_speed']);
-setcookie("user_book_line_id", $_SESSION['user_book_line_id']);?>
+if (isset($_SESSION['user_read_speed']) && isset($_SESSION['user_book_line_id'])) {
+    setcookie("user_read_speed", $_SESSION['user_read_speed']);
+    setcookie("user_book_line_id", $_SESSION['user_book_line_id']);
+}
+?>
+
+
 <?php //ob_start(); ?>
 <!DOCTYPE html>
 <html>

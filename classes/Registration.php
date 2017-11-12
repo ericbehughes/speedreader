@@ -76,7 +76,9 @@ class Registration
                     $user = new User($user_email, $user_password_hash);
                     $this->db_connection->insertIntoUserTable($user);
                     $_SESSION['user_login_status'] = 1;
-                    $_SESSION['user_email'] = $user_email;
+                    $_SESSION['user_email'] = $user->getEmail();
+                    $_SESSION['user_read_speed'] = $user->getReadSpeed();
+                    $_SESSION['user_book_line_id'] = $user->getBookLineId();
 
                     header("Location: index.php");
 
