@@ -1,5 +1,8 @@
 
 
+<?php
+setcookie("user_read_speed", $_SESSION['user_read_speed']); ?>
+<?php //ob_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
