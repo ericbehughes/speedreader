@@ -41,6 +41,7 @@ var speedReader = (function () {
 
     var onPauseClick = function () {
         console.log("onPause currentLineID" + currentLineID);
+        updateBookIDAndReadSpeed();
         clearInterval(intervalBetweenWordDisplay);
 
     };
@@ -88,9 +89,37 @@ var speedReader = (function () {
         document.cookie = 'user_read_speed=' + $(e.target).text();
 
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
-
+        updateBookIDAndReadSpeed();
         console.log(document.cookie);
     };
+
+    var updateBookIDAndReadSpeed = function () {
+        console.log(document.cookie);
+        document.cookie = 'user_read_speed=' + readSpeed
+        document.cookie = 'user_book_line_id=' + currentLineID;
+    };
+
+    var getLineIDAndReadSpeedFromCookie = function(){
+        if (document.cookie.indexOf("user_read_speed") !== -1){
+            var keyIndex = document.cookie.indexOf("user_read_speed");
+            var semiColon = document.cookie.indexOf(";", keyIndex);
+            var str = document.cookie.substring(keyIndex + "user_read_speed".length +1, semiColon);
+            readSpeed = str;
+        }
+
+        if (document.cookie.indexOf("user_book_line_id") !== -1){
+            var keyIndex = document.cookie.indexOf("user_book_line_id");
+            var semiColon = document.cookie.indexOf(";", keyIndex);
+            var str = document.cookie.substring(keyIndex + "user_book_line_id".length +1, semiColon);
+            currentLineID = str;
+        }
+        else{
+            readSpeed = 100;
+            currentLineID=1;
+        }
+    };
+
+
 
     /**
      *
@@ -125,15 +154,6 @@ var speedReader = (function () {
         delayBetweenWords = 1000; // 1 second for delay to start;
         currentLineID = 1;
 
-        if (document.cookie.indexOf("user_read_speed") !== -1){
-            var keyIndex = document.cookie.indexOf("user_read_speed");
-            var semiColon = document.cookie.indexOf(";", keyIndex);
-            var str = document.cookie.substring(keyIndex + "user_read_speed".length +1, semiColon);
-            readSpeed = str;
-        }
-        else{
-            readSpeed = 100;
-        }
 
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
 
@@ -143,7 +163,10 @@ var speedReader = (function () {
             pauseBtn.addEventListener('click', onPauseClick, false);
             readSpeedDropDown.addEventListener('click', onChangeReadSpeedClick, false);
             logoutBtn.addEventListener('click', onLogoutClick, false);
+            getLineIDAndReadSpeedFromCookie();
         }
+
+
     };
     return {
         init: init

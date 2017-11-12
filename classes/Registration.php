@@ -81,6 +81,7 @@ class Registration
                     $_SESSION['user_book_line_id'] = $user->getBookLineId();
 
                     header("Location: index.php");
+                    exit();
 
                     // check return of insertIntoDB
                 }
