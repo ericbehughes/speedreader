@@ -129,6 +129,17 @@ class User {
 
 
 
+    public function equals($obj){
+    //They do have same keys and in same order.
+            foreach($obj as $key=>$val){
+                $bool = valuesAreIdentical($this[$key], $obj[$key]);
+                if($bool===false){
+                    return false;
+                }
+            }
+            return true;
+    }
+
 
 
             

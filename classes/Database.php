@@ -180,8 +180,6 @@ class Database {
     }
 
     function loadLinesIntoBookTable($path) {
-
-
         $path = 'http://www.textfiles.com/etext/FICTION/aesop11.txt';
         $file = fopen($path, "r");
         //$lines = [];
@@ -200,6 +198,19 @@ class Database {
 
         }
         fclose($file);
+    }
+
+    function updateUserOnLogout($user_email, $book_line_id, $read_speed){
+        $book_line_id = (int)$book_line_id;
+        $read_speed = (int)$read_speed;
+
+        $stmt = $this->pdo->prepare("UPDATE USERS set book_line_id = ?, read_speed = ? WHERE email = ?;");
+        if ($users = $stmt->execute([$book_line_id, $read_speed, $user_email])) {
+            $result = $stmt->fetch();
+            return $result;
+        }
+
+        return null;
     }
 
 }

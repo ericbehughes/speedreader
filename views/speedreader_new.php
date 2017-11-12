@@ -1,7 +1,8 @@
 
 
 <?php
-setcookie("user_read_speed", $_SESSION['user_read_speed']); ?>
+setcookie("user_read_speed", $_SESSION['user_read_speed']);
+setcookie("user_book_line_id", $_SESSION['user_book_line_id']);?>
 <?php //ob_start(); ?>
 <!DOCTYPE html>
 <html>
@@ -27,8 +28,10 @@ setcookie("user_read_speed", $_SESSION['user_read_speed']); ?>
 <div id="mainDiv" class="container" style="padding: 0">
 
     <div class="card card-container" style="width:700px">
-        <span>Hey, <?php echo $_SESSION['user_email']; ?>. You are logged in.</span>
-        <a href="index.php?logout">Logout</a>
+        <span>Hey, <?php echo $_SESSION['user_email']; ?>. You are logged in.</span><br>
+        <span>read speed <?php echo $_SESSION['user_read_speed']; ?>. </span><br>
+        <span>line id<?php echo $_SESSION['user_book_line_id']; ?>. </span>
+        <a id="logoutBtn" href="index.php?logout">Logout</a>
         <br>
 
         <div style="width: 500px; height: 300px; margin: auto;display: flex; align-items: center; justify-content: center;">

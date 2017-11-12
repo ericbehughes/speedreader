@@ -10,11 +10,6 @@
  * @type {{init}}
  */
 var speedReader = (function () {
-    var onPauseClick = function () {
-        currentWord =
-            clearInterval(intervalBetweenWordDisplay);
-    }
-
     var getCurrentWord = function (currentLine) {
         currentLineAsArray = currentLine.split(" ");
         var i = 0;
@@ -40,7 +35,6 @@ var speedReader = (function () {
         console.log('inside on start click');
         getLineFromDB();
         console.log("onStart currentLineID" + currentLineID);
-        isPaused = false;
 
     };
 
@@ -49,7 +43,16 @@ var speedReader = (function () {
         console.log("onPause currentLineID" + currentLineID);
         clearInterval(intervalBetweenWordDisplay);
 
-    }
+    };
+
+    var onLogoutClick = function () {
+        console.log("onLogoutClick currentLineID" + currentLineID);
+        console.log("onLogoutClick currentLineID" + readSpeed);
+
+        document.cookie = 'user_read_speed=' + readSpeed
+        document.cookie = 'user_book_line_id=' + currentLineID;
+
+    };
 
     var getLineFromDB = function (){
         $.ajax({
@@ -80,16 +83,13 @@ var speedReader = (function () {
     }
 
 
-    var resumeReading = function () {
-
-    }
-
     var onChangeReadSpeedClick = function (e) {
         readSpeed = $(e.target).text();
         document.cookie = 'user_read_speed=' + $(e.target).text();
 
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
-        console.log($(e.target).text());
+
+        console.log(document.cookie);
     };
 
     /**
@@ -102,11 +102,11 @@ var speedReader = (function () {
 
 
     var currentLine;
-    var isPaused;
     var readSpeed;
     var currentWord;
     var startBtn;
     var pauseBtn;
+    var logoutBtn;
     var delayBetweenWords;
     var currentLineAsArray;
     var intervalBetweenWordDisplay;
@@ -116,12 +116,12 @@ var speedReader = (function () {
     var init = function () {
 
         currentLine = 'this is some sample text to run through in order to test the speed reader.';
-        isPaused = false;
         readSpeed = 100;
         startBtn = document.getElementById('startBtn');
         pauseBtn = document.getElementById('pauseBtn');
         currentWord = document.getElementById('currentWord');
         readSpeedDropDown = document.getElementById('readSpeedDropDown');
+        logoutBtn = document.getElementById('logoutBtn')
         delayBetweenWords = 1000; // 1 second for delay to start;
         currentLineID = 1;
 
@@ -142,8 +142,7 @@ var speedReader = (function () {
             startBtn.addEventListener('click', onStartClick, false);
             pauseBtn.addEventListener('click', onPauseClick, false);
             readSpeedDropDown.addEventListener('click', onChangeReadSpeedClick, false);
-
-
+            logoutBtn.addEventListener('click', onLogoutClick, false);
         }
     };
     return {
