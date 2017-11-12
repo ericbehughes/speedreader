@@ -11,6 +11,6 @@ $db = new Database();
 if ($_GET['id']){
 
     $line = $db->getLineById($_GET['id']);
-    echo $line[0]['line'];
+    echo $line;
 }
 

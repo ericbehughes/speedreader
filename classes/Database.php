@@ -54,11 +54,11 @@ class Database {
         $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
         //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
 
-        if ($users = $stmt->execute([$id])) {
-            while ($row = $stmt->fetch()) {
-                $array[] = $row;
+        if ($result = $stmt->execute([$id])) {
+            if($row = $stmt->fetch()) {
+                $line = $row['line'];
             }
-            return $array;
+            return $line;
         }
 
         return null;
