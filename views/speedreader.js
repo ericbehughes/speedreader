@@ -136,7 +136,6 @@ var speedReader = (function () {
     var startBtn;
     var pauseBtn;
     var logoutBtn;
-    var delayBetweenWords;
     var currentLineAsArray;
     var intervalBetweenWordDisplay;
     var currentLineID;
@@ -151,11 +150,7 @@ var speedReader = (function () {
         currentWord = document.getElementById('currentWord');
         readSpeedDropDown = document.getElementById('readSpeedDropDown');
         logoutBtn = document.getElementById('logoutBtn')
-        delayBetweenWords = 1000; // 1 second for delay to start;
         currentLineID = 1;
-
-
-        $("#readSpeedBtn").text("Read Speed " + readSpeed);
 
         // Add event handlers
         if (document.addEventListener) {
@@ -165,6 +160,12 @@ var speedReader = (function () {
             logoutBtn.addEventListener('click', onLogoutClick, false);
             getLineIDAndReadSpeedFromCookie();
         }
+
+        $("#readSpeedBtn").text("Read Speed " + readSpeed);
+        currentLine = getLineFromDB();
+        $(currentWord).text()
+
+
 
 
     };
