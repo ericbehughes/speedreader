@@ -39,13 +39,16 @@ var speedReader = (function () {
     var onStartClick = function () {
         console.log('inside on start click');
         getLineFromDB();
+        console.log("onStart currentLineID" + currentLineID);
         isPaused = false;
 
     };
 
 
     var onPauseClick = function () {
+        console.log("onPause currentLineID" + currentLineID);
         clearInterval(intervalBetweenWordDisplay);
+
     }
 
     var getLineFromDB = function (){
