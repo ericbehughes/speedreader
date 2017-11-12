@@ -1,20 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ehugh
- * Date: 11/11/2017
- * Time: 5:39 PM
- */
 
-require_once("classes/Database.php");
-$db = new Database();
-if (isset($_GET['id'])){
-
-    $line = $db->getLineById($_GET['id']);
-    echo $line[0]['line'];
-}
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +50,9 @@ if (isset($_GET['id'])){
                             }
                             else {
                                 clearInterval(intervalBetweenWordDisplay);
-                                alert('interval over');
+                                //alert('interval over');
+                                ++currentLineID;
+                                onStartClick();
                             }
                         }, 500);
 
@@ -81,11 +67,19 @@ if (isset($_GET['id'])){
                     $.ajax({
                         type: "GET",
                         url: "book.php",
-                        data: 'id=6',
+                        data: 'id=' + currentLineID,
                         dataType: "html",
                         success: function (msg) {
-                            $("#currentWord").html(msg);
-                            console.log('success');
+                            if (msg.toString().length !== 0){
+                                currentLine = msg;
+                                console.log('success');
+                                getCurrentWord(currentLine);
+
+                            }else{
+                                ++currentLineID
+                                onStartClick();
+                            }
+
 
                         },
                         error: function (xhr, status, errorThrown) {
@@ -112,6 +106,7 @@ if (isset($_GET['id'])){
                 var currentSpaceIndex;
                 var currentLineAsArray;
                 var intervalBetweenWordDisplay;
+                var currentLineID;
 
                 var init = function () {
 
@@ -122,6 +117,7 @@ if (isset($_GET['id'])){
                     pauseBtn = document.getElementById('pauseBtn');
                     currentWord = document.getElementById('currentWord');
                     delayBetweenWords = 1000; // 1 second for delay to start;
+                    currentLineID = 0;
 
                     // Add event handlers
                     if (document.addEventListener) {
@@ -129,7 +125,7 @@ if (isset($_GET['id'])){
                         pauseBtn.addEventListener('click', onPauseClick, false);
 
                     }
-                    //getCurrentWord(currentLine);
+
 
 
                 };
@@ -158,7 +154,7 @@ if (isset($_GET['id'])){
         <br>
         <div style="width: 500px; height: 300px; background: cornflowerblue; margin: auto;display: flex; align-items: center; justify-content: center;">
 
-            <span id="currentWord" style="font-size: 40px; color: white">something</span>
+            <span id="currentWord" style="font-size: 40px; color: white"></span>
         </div>
         <div style="margin: auto;display: flex; align-items: center; justify-content: center;">
             <button id="startBtn" class="btn btn-success">Start</button>

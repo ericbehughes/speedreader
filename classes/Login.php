@@ -70,18 +70,19 @@ class Login {
                 // if this user exists
                 if ($result_of_login_check  == true) {
 
+                    //create user to get hash
                     $userTemp = $this->db_connection->createUserFromEmail($user_email);
 
                     // using PHP 5.5's password_verify() function to check if the provided password fits
                     // the hash of that user's password
                     if (password_verify($_POST['user_password'], $userTemp->getPassword())) {
 
-                        // write user data into PHP SESSION (a file on your server)
-                        
+                        // write user data into PHP SESSION
                         $_SESSION['user_email'] = $userTemp->getEmail();
                         $_SESSION['user_login_status'] = 1;
 
                     } else {
+                        $this->db_connection->updateBadLoginAttemptFromEmail($user_email);
                         $this->errors[] = "Wrong password. Try again.";
                     }
                 } else {

@@ -64,6 +64,22 @@ class Database {
         return null;
     }
 
+    function getMaxLineFromBookTable(){
+        $stmt = $this->pdo->prepare("SELECT MAX(id) FROM BOOK");
+
+        $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+        //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+
+        if ($users = $stmt->execute()) {
+            if($row = $stmt->fetch()) {
+                $rowNum = $row;
+            }
+            return $rowNum;
+        }
+
+        return null;
+    }
+
     
     function isUserAlreadyRegistered($email){
         $stmt = $this->pdo->prepare("SELECT email FROM USERS WHERE email = ?");
@@ -93,6 +109,17 @@ class Database {
         return null;
     }
 
+    function updateBadLoginAttemptFromEmail($user_email){
+        $stmt = $this->pdo->prepare("UPDATE USERS set loginAttempts = loginAttempts +1 WHERE email = ?;");
+        if ($users = $stmt->execute([$user_email])) {
+            $result = $stmt->fetch();
+
+            return $result;
+        }
+
+        return null;
+    }
+
     function fetchCountOfUsers() {
         $stmt = $this->pdo->prepare("SELECT count(id) FROM USERS;");
         if ($users = $stmt->execute()) {
@@ -111,7 +138,8 @@ class Database {
         $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS users (
                 id SERIAL PRIMARY KEY,
                 email varchar(64) NOT NULL UNIQUE,
-                password varchar(255) NOT NULL);');
+                password varchar(255) NOT NULL, 
+                loginAttempts int DEFAULT  0);');
         $stmt->execute();
     }
 
