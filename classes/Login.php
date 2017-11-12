@@ -72,6 +72,8 @@ class Login {
                         // write user data into PHP SESSION
                         $_SESSION['user_email'] = $userTemp->getEmail();
                         $_SESSION['user_login_status'] = 1;
+                        $_SESSION['user_book_line_id'] = $userTemp->getBookLineId() == null ? 1 : $userTemp->getBookLineId();
+                        $_SESSION['user_read_speed'] = $userTemp->getReadSpeed();
 
                     } else {
                         $this->db_connection->updateBadLoginAttemptFromEmail($user_email);

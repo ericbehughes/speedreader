@@ -101,9 +101,9 @@ class Database {
         if ($stmt->execute([$user_email])) {
 
             if ($row = $stmt->fetch()) {
-                $email = $row;
+                $user = $row;
             }
-            return $email;
+            return $user;
         }
 
         return null;

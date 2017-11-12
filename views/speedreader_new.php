@@ -93,6 +93,28 @@
                 var resumeReading = function () {
 
                 }
+                
+                var onChangeReadSpeedClick = function (e) {
+
+                    console.log($(e.target).text());
+                    readSpeed = $(e.target).text();
+                    document.cookie = 'user_read_speed=' + $(e.target).text();
+
+                    $("#readSpeedBtn").text("Read Speed " + readSpeed);
+
+
+
+                };
+
+
+
+                    /**
+                     *
+                     * -	every time the user changes the speed,
+                     PHP must respond to an AJAX request, and save the new speed. The response is unimportant,
+                     but send one anyways!
+                      */
+
 
                 var currentLine;
                 var isPaused;
@@ -105,6 +127,7 @@
                 var currentLineAsArray;
                 var intervalBetweenWordDisplay;
                 var currentLineID;
+                var readSpeedDropDown;
 
                 var init = function () {
 
@@ -114,13 +137,28 @@
                     startBtn = document.getElementById('startBtn');
                     pauseBtn = document.getElementById('pauseBtn');
                     currentWord = document.getElementById('currentWord');
+                    readSpeedDropDown = document.getElementById('readSpeedDropDown');
                     delayBetweenWords = 1000; // 1 second for delay to start;
                     currentLineID = 0;
+
+                    if (document.cookie.indexOf("user_read_speed") !== -1){
+                        var keyIndex = document.cookie.indexOf("user_read_speed");
+                        var semiColon = document.cookie.indexOf(";", keyIndex);
+                        var str = document.cookie.substring(keyIndex + "user_read_speed".length +1, semiColon);
+                        readSpeed = str;
+                    }
+                    else{
+                        readSpeed = 100;
+                    }
+
+                    $("#readSpeedBtn").text("Read Speed " + readSpeed);
 
                     // Add event handlers
                     if (document.addEventListener) {
                         startBtn.addEventListener('click', onStartClick, false);
                         pauseBtn.addEventListener('click', onPauseClick, false);
+                        readSpeedDropDown.addEventListener('click', onChangeReadSpeedClick, false);
+
 
                     }
                 };
@@ -152,11 +190,11 @@
         <div style="margin: auto;display: flex; align-items: center; justify-content: center;">
             <button id="startBtn" class="btn btn-success">Start</button>
             <button id="pauseBtn" class="btn btn-warning">Pause</button>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Read Speed
+            <div class="dropdown" >
+                <button class="btn btn-primary dropdown-toggle" id="readSpeedBtn" type="button" data-toggle="dropdown">Read Speed
                     <span class="caret"></span></button>
-                <ul class="dropdown-menu" style="    height: auto;max-height: 100px;overflow-x: hidden;">
-                    <?php for ($i = 50; $i <= 700; $i += 50){
+                <ul class="dropdown-menu" id="readSpeedDropDown" style="    height: auto;max-height: 100px;overflow-x: hidden;">
+                    <?php for ($i = 50; $i <= 2000; $i += 50){
                         echo '<li><a href="#">' . $i . '</a></li>';
                     }?>
                 </ul>
