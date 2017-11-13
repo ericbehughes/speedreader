@@ -110,7 +110,7 @@ class Database {
     }
 
     function updateBadLoginAttemptFromEmail($user_email){
-        $stmt = $this->pdo->prepare("UPDATE USERS set loginAttempts = loginAttempts +1 WHERE email = ?;");
+        $stmt = $this->pdo->prepare("UPDATE USERS set login_attempts = login_attempts +1 WHERE email = ?;");
         if ($users = $stmt->execute([$user_email])) {
             $result = $stmt->fetch();
 
@@ -142,7 +142,7 @@ class Database {
                 password varchar(255) NOT NULL,
                 book_line_id int references book (id),
                 read_speed int default 50,
-                loginAttempts int DEFAULT  0);');
+                login_attempts int DEFAULT  0);');
         $stmt->execute();
     }
 

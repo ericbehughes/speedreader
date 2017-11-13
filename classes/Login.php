@@ -58,23 +58,27 @@ class Login {
 
                 // if this user exists
                 if ($result_of_login_check  == true) {
-
                     //create user from pdo to get hash
-                    $userTemp = $this->db_connection->createUserFromEmail($user_email);
+                        $userTemp = $this->db_connection->createUserFromEmail($user_email);
+                    if ($userTemp->getLoginAttempts() < 3) {
 
-                    // using PHP 5.5's password_verify() function to check if the provided password fits
-                    // the hash of that user's password
-                    if (password_verify($_POST['user_password'], $userTemp->getPassword())) {
+                        // using PHP 5.5's password_verify() function to check if the provided password fits
+                        // the hash of that user's password
+                        if (password_verify($_POST['user_password'], $userTemp->getPassword())) {
 
-                        // write user data into PHP SESSION
-                        $_SESSION['user_email'] = $userTemp->getEmail();
-                        $_SESSION['user_login_status'] = 1;
-                        $_SESSION['user_book_line_id'] = $userTemp->getBookLineId() == null ? 1 : $userTemp->getBookLineId();
-                        $_SESSION['user_read_speed'] = $userTemp->getReadSpeed();
+                            // write user data into PHP SESSION
+                            $_SESSION['user_email'] = $userTemp->getEmail();
+                            $_SESSION['user_login_status'] = 1;
+                            $_SESSION['user_book_line_id'] = $userTemp->getBookLineId() == null ? 1 : $userTemp->getBookLineId();
+                            $_SESSION['user_read_speed'] = $userTemp->getReadSpeed();
 
-                    } else {
-                        $this->db_connection->updateBadLoginAttemptFromEmail($user_email);
-                        $this->errors[] = "Wrong password. Try again.";
+                        } else {
+                            $this->db_connection->updateBadLoginAttemptFromEmail($user_email);
+                            $this->errors[] = "Wrong password. Try again.";
+                        }
+                    }
+                    else{
+                        $this->errors[] = "Too many login attempts. No speed reader for you. biiiiiiii";
                     }
                 } else {
                     $this->errors[] = "This user does not exist.";
