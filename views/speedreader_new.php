@@ -41,7 +41,7 @@ if (isset($_SESSION['user_read_speed']) && isset($_SESSION['user_book_line_id'])
 
         <div style="width: 500px; height: 300px; margin: auto;display: flex; align-items: center; justify-content: center;">
 
-            <span id="currentWord" style="font-size: 40px"></span>
+            <span id="currentWord" style="font-size: 40px;"></span>
         </div>
         <div style="margin: auto;display: flex; align-items: center; justify-content: center;">
             <button id="startBtn" class="btn btn-success">Start</button>

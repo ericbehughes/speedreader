@@ -16,6 +16,7 @@ var speedReader = (function () {
             intervalBetweenWordDisplay = setInterval(function () {
                 if (i < currentLineAsArray.length ) {
                     currentWord.textContent = currentLineAsArray[i];
+                    formatCurrentWordBeforeDisplay();
                     console.log(i);
                     i++;
                 }
@@ -38,6 +39,7 @@ var speedReader = (function () {
 
         getLineFromDB();
         console.log(currentLine);
+        getCurrentWord();
         console.log("onStart currentLineID " + currentLineID);
 
     };
@@ -142,17 +144,52 @@ var speedReader = (function () {
             currentLineID=1;
         }
     };
+    
+    
+    var formatCurrentWordBeforeDisplay = function () {
+        var length = currentWord.textContent.length;
+        if (length == 1){
+            $(currentWord).css('color', 'red');
+        }
+        else if (length >=2 && length <= 5 ){
 
+            $(currentWord[1]).css('color', 'red');
+        }
+        else if (length >= 6 && length <=9){
+            $(currentWord[2]).css('color', 'red');
+        }
+        else if (length >= 10 && length <= 13){
+            $(currentWord[3]).css('color', 'red');
+        }
+        else if (length > 13){
+            $(currentWord[4]).css('color', 'red');
+        }
+        else{
+            $(currentWord).css('color', 'black');
+        }
 
+    };
+        
+    
 
     /**
-     *
-     * -	every time the user changes the speed,
-     PHP must respond to an AJAX request, and save the new speed.
-     The response is unimportant,
-     but send one anyways!
-     */
+     * 
+     * -	When displaying each token:
+     o	choose a monospaced font
+     o	have the text left-justified
+     o	choose a focus letter based off the length of the token and “center” 
+     the word around the focus letter (not really centered, see algorithm below):
+     length = 1 => 1st letter    e.g.: ____a or 4 spaces before
+     length = 2-5 => 2nd letter  e.g.: ___four or 3 spaces before
+     e.g.: ___latch or 3 spaces before
+     length = 6-9 => third letter      __embassy 2 spaces
+     length = 10-13 => fourth letter   _playground 1 spaces
+     length >13 => fifth letter        acknowledgement no spaces
 
+     * 
+     * 
+     * 
+     */
 
     var currentLine;
     var readSpeed;

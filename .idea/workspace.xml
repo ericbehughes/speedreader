@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd8f1ee0-619e-4222-b5d6-8567c7d780e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book.php" afterPath="$PROJECT_DIR$/book.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Database.php" afterPath="$PROJECT_DIR$/classes/Database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/speedreader.js" afterPath="$PROJECT_DIR$/views/speedreader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/speedreader_new.php" afterPath="$PROJECT_DIR$/views/speedreader_new.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,21 +17,9 @@
       <file leaf-file-name="speedreader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/speedreader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1065">
-              <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="374">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="book.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/book.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="e#6#89#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -91,9 +77,12 @@
       <file leaf-file-name="speedreader_new.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/speedreader_new.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="352">
+              <caret line="43" column="58" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>25px</find>
-      <find>25p</find>
       <find>body</find>
       <find>height</find>
       <find>700px</find>
@@ -151,6 +138,8 @@
       <find>getLineBy</find>
       <find>updateUser</find>
       <find>fetch new</find>
+      <find>span</find>
+      <find>.text</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,11 +162,11 @@
         <option value="$PROJECT_DIR$/views/not_logged_in.php" />
         <option value="$PROJECT_DIR$/classes/User.php" />
         <option value="$PROJECT_DIR$/classes/Registration.php" />
-        <option value="$PROJECT_DIR$/views/speedreader_new.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/classes/Login.php" />
         <option value="$PROJECT_DIR$/classes/Database.php" />
         <option value="$PROJECT_DIR$/book.php" />
+        <option value="$PROJECT_DIR$/views/speedreader_new.php" />
         <option value="$PROJECT_DIR$/views/speedreader.js" />
       </list>
     </option>
@@ -324,7 +313,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79290000" />
+    <option name="totallyTimeSpent" value="81366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -520,7 +509,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
           <caret line="54" column="47" lean-forward="true" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -759,14 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/speedreader_new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -805,10 +789,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/speedreader_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="43" column="58" lean-forward="false" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/speedreader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1065">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="374">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
           <folding />
         </state>
       </provider>
