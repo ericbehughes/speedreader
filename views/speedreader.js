@@ -17,7 +17,6 @@ var speedReader = (function () {
                 if (i < currentLineAsArray.length ) {
                     currentWord = currentLineAsArray[i];
                     formatCurrentWordBeforeDisplay();
-
                     i++;
                 }
 
