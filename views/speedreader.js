@@ -15,7 +15,7 @@ var speedReader = (function () {
         var i = 0;
             intervalBetweenWordDisplay = setInterval(function () {
                 if (i < currentLineAsArray.length ) {
-                    currentWord.textContent = currentLineAsArray[i];
+                    currentWord = currentLineAsArray[i];
                     formatCurrentWordBeforeDisplay();
                     console.log(i);
                     i++;
@@ -111,11 +111,16 @@ var speedReader = (function () {
 
     var onChangeReadSpeedClick = function (e) {
         readSpeed = $(e.target).text();
-        document.cookie = 'user_read_speed=' + $(e.target).text();
         clearInterval(intervalBetweenWordDisplay);
+        console.log('read speed' + readSpeed);
+        document.cookie = 'user_read_speed=' + $(e.target).text();
+        //clearInterval(intervalBetweenWordDisplay);
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
         updateSpeedToDB();
         updateBookIDAndReadSpeed();
+        getLineFromDB();
+        getCurrentWord();
+
         console.log(document.cookie);
     };
 
@@ -147,25 +152,41 @@ var speedReader = (function () {
     
     
     var formatCurrentWordBeforeDisplay = function () {
-        var length = currentWord.textContent.length;
+        console.log(currentWord);
+        var length = currentWord.length;
+
         if (length == 1){
-            $(currentWord).css('color', 'red');
+            leftPart.textContent = '\u00A0'+'\u00A0'+'\u00A0'+'\u00A0'
+            middlePart.textContent = currentWord;
+            rightPart.textContent = "";
         }
         else if (length >=2 && length <= 5 ){
+            //var a = $(currentWord).text()[2];
 
-            $(currentWord[1]).css('color', 'red');
+            // creates the new html having wrapped the accesskey character with a span
+            leftPart.textContent = '\u00A0'+'\u00A0'+'\u00A0'+currentWord.substring(0, 1);
+            middlePart.textContent = currentWord[1];
+            rightPart.textContent = currentWord.substring(2);
+
+            //$(currentWord).text().css('color', 'red');
         }
         else if (length >= 6 && length <=9){
-            $(currentWord[2]).css('color', 'red');
+
+            //em b assy
+            //traveler
+            //  tr
+            leftPart.textContent = '\u00A0'+'\u00A0'+currentWord.substring(0, 2);
+            middlePart.textContent = currentWord[2];
+            rightPart.textContent = currentWord.substring(3);
         }
         else if (length >= 10 && length <= 13){
-            $(currentWord[3]).css('color', 'red');
+
         }
         else if (length > 13){
-            $(currentWord[4]).css('color', 'red');
+
         }
         else{
-            $(currentWord).css('color', 'black');
+
         }
 
     };
@@ -194,6 +215,9 @@ var speedReader = (function () {
     var currentLine;
     var readSpeed;
     var currentWord;
+    var leftPart;
+    var middlePart;
+    var rightPart;
     var startBtn;
     var pauseBtn;
     var logoutBtn;
@@ -209,7 +233,9 @@ var speedReader = (function () {
         readSpeed = 100;
         startBtn = document.getElementById('startBtn');
         pauseBtn = document.getElementById('pauseBtn');
-        currentWord = document.getElementById('currentWord');
+        leftPart= document.getElementById('leftPart');
+        middlePart = document.getElementById('middlePart');
+        rightPart = document.getElementById('rightPart');
         readSpeedDropDown = document.getElementById('readSpeedDropDown');
         logoutBtn = document.getElementById('logoutBtn');
 
@@ -227,7 +253,7 @@ var speedReader = (function () {
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
         getLineFromDB();
         getCurrentWord();
-        $(currentWord).text()
+        //$(currentWord).text()
 
 
 

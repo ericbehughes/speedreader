@@ -39,9 +39,12 @@ if (isset($_SESSION['user_read_speed']) && isset($_SESSION['user_book_line_id'])
         <a id="logoutBtn" href="index.php?logout">Logout</a>
         <br>
 
-        <div style="width: 500px; height: 300px; margin: auto;display: flex; align-items: center; justify-content: center;">
+        <div style="width: 500px;height: 300px;margin: auto; padding-top: 100px;background: purple">
+<!--        <div style="width: 500px; height: 300px; margin: auto;display: flex; align-items: center; justify-content: center;">-->
 
-            <span id="currentWord" style="font-size: 40px;"></span>
+            <span id="leftPart" style="font-size: 40px;font-family: monospace">suh</span>
+            <span id="middlePart"  style="font-size: 40px;font-family: monospace; color: red">dude</span>
+            <span id="rightPart" style="font-size: 40px;font-family: monospace;">last</span>
         </div>
         <div style="margin: auto;display: flex; align-items: center; justify-content: center;">
             <button id="startBtn" class="btn btn-success">Start</button>
