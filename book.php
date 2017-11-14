@@ -7,17 +7,16 @@
  */
 
 
-/**
- * NOTE: in order to keep a speed integer encoded as an integer,
- * use the JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT options with json_encode.
- */
+
 require_once("classes/Database.php");
 $db = new Database();
 if ($_GET['id']){
-    $line = $db->getLineById($_GET['id']);
-    echo $line;
-}
-elseif ($_GET['user_read_speed']){
-
+    $id = $_GET['id'];
+    $line = $db->getLineById($id);
+    while (strlen($line['line']) == 0){
+        $line = $db->getLineById(++$id);
+    }
+    echo $line['line'];
+    $_SESSION['user_book_line_id'] = $line['id'];
 }
 

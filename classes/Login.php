@@ -78,7 +78,7 @@ class Login {
                         }
                     }
                     else{
-                        $this->errors[] = "Too many login attempts. No speed reader for you. biiiiiiii";
+                        $this->errors[] = "<span id='lockedOutSpan'>Too many login attempts. No speed reader for you. biiiiiiii</span>";
                     }
                 } else {
                     $this->errors[] = "This user does not exist.";

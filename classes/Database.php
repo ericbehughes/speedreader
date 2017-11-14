@@ -49,18 +49,15 @@ class Database {
     }
 
     function getLineById($id){
-        $stmt = $this->pdo->prepare("SELECT line FROM BOOK where id = ?;");
-
+        $stmt = $this->pdo->prepare("SELECT * FROM BOOK where id = ?;");
         $this->pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
-        //$stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
 
         if ($result = $stmt->execute([$id])) {
             if($row = $stmt->fetch()) {
-                $line = $row['line'];
+                return $row;
             }
-            return $line;
-        }
 
+        }
         return null;
     }
 
@@ -110,10 +107,9 @@ class Database {
     }
 
     function updateBadLoginAttemptFromEmail($user_email){
-        $stmt = $this->pdo->prepare("UPDATE USERS set login_attempts = login_attempts +1 WHERE email = ?;");
+        $stmt = $this->pdo->prepare("UPDATE USERS set login_attempts = loginttempts +1 WHERE email = ?;");
         if ($users = $stmt->execute([$user_email])) {
             $result = $stmt->fetch();
-
             return $result;
         }
 

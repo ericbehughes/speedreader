@@ -17,13 +17,18 @@ var speedReader = (function () {
             intervalBetweenWordDisplay = setInterval(function () {
                 if (i < currentLineAsArray.length - 1) {
                     currentWord.textContent = currentLineAsArray[i];
+                    console.log(i);
                     i++;
                 }
                 else {
                     clearInterval(intervalBetweenWordDisplay);
-                    //alert('interval over');
+                    console.log('fetch new line');
                     ++currentLineID;
                     onStartClick();
+
+                    //alert('interval over');
+                    //getLineFromDB();
+
                 }
             }, 60 / readSpeed* 1000);
 
@@ -33,8 +38,10 @@ var speedReader = (function () {
     // ajax call using jQuery
     var onStartClick = function () {
         console.log('inside on start click');
+
         getLineFromDB();
-        console.log("onStart currentLineID" + currentLineID);
+        console.log(currentLine);
+        console.log("onStart currentLineID " + currentLineID);
 
     };
 
@@ -62,15 +69,9 @@ var speedReader = (function () {
             data: 'id=' + currentLineID,
             dataType: "html",
             success: function (msg) {
-                if (msg.toString().length !== 0){
-                    currentLine = msg;
-                    console.log('success');
-                    getCurrentWord(currentLine);
+                currentLine = msg;
+                getCurrentWord(msg);
 
-                }else{
-                    ++currentLineID
-                    onStartClick();
-                }
             },
             error: function (xhr, status, errorThrown) {
 
@@ -140,6 +141,7 @@ var speedReader = (function () {
     var intervalBetweenWordDisplay;
     var currentLineID;
     var readSpeedDropDown;
+    var lockedOutSpan;
 
     var init = function () {
 
@@ -149,7 +151,8 @@ var speedReader = (function () {
         pauseBtn = document.getElementById('pauseBtn');
         currentWord = document.getElementById('currentWord');
         readSpeedDropDown = document.getElementById('readSpeedDropDown');
-        logoutBtn = document.getElementById('logoutBtn')
+        logoutBtn = document.getElementById('logoutBtn');
+
         currentLineID = 1;
 
         // Add event handlers
