@@ -11,13 +11,13 @@
  */
 var speedReader = (function () {
     var getCurrentWord = function () {
-
+        currentLineAsArray = currentLine.split(" ");
         var i = 0;
             intervalBetweenWordDisplay = setInterval(function () {
                 if (i < currentLineAsArray.length ) {
                     currentWord = currentLineAsArray[i];
                     formatCurrentWordBeforeDisplay();
-                    console.log(i);
+
                     i++;
                 }
 
@@ -70,9 +70,6 @@ var speedReader = (function () {
             dataType: "html",
             success: function (msg) {
                 currentLine = msg;
-                currentLineAsArray = currentLine.split(" ");
-
-
             },
             error: function (xhr, status, errorThrown) {
 
@@ -93,9 +90,7 @@ var speedReader = (function () {
             data: 'speed='+readSpeed,
             dataType: "html",
             success: function (msg) {
-
                 console.log('updated db with new speed successful ');
-
             },
             error: function (xhr, status, errorThrown) {
 
@@ -110,18 +105,25 @@ var speedReader = (function () {
 
 
     var onChangeReadSpeedClick = function (e) {
-        readSpeed = $(e.target).text();
-        clearInterval(intervalBetweenWordDisplay);
-        console.log('read speed' + readSpeed);
-        document.cookie = 'user_read_speed=' + $(e.target).text();
-        //clearInterval(intervalBetweenWordDisplay);
-        $("#readSpeedBtn").text("Read Speed " + readSpeed);
-        updateSpeedToDB();
-        updateBookIDAndReadSpeed();
-        getLineFromDB();
-        getCurrentWord();
 
-        console.log(document.cookie);
+        if (/^([0-9]+)$/.test($(e.target).text())){
+            readSpeed = $(e.target).text();
+            clearInterval(intervalBetweenWordDisplay);
+            console.log('read speed' + readSpeed);
+            document.cookie = 'user_read_speed=' + $(e.target).text();
+            //clearInterval(intervalBetweenWordDisplay);
+            $("#readSpeedBtn").text("Read Speed " + readSpeed);
+            updateSpeedToDB();
+            updateBookIDAndReadSpeed();
+            getLineFromDB();
+            getCurrentWord();
+
+            console.log(document.cookie);
+        }
+        else{
+            alert('please enter a valid readspeed between 50-2000');
+        }
+
     };
 
     var updateBookIDAndReadSpeed = function () {
