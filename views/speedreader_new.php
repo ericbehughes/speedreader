@@ -32,20 +32,20 @@ if (isset($_SESSION['user_read_speed']) && isset($_SESSION['user_book_line_id'])
 
 <div id="mainDiv" class="container" style="padding: 0">
 
-    <div class="card card-container" style="width:700px">
+    <div class="card card-container" style="width:700px;height: 400px;">
         <span>Hey, <?php echo $_SESSION['user_email']; ?>. You are logged in.</span><br>
         <span>read speed <?php echo $_SESSION['user_read_speed']; ?>. </span><br>
         <span>line id<?php echo $_SESSION['user_book_line_id']; ?>. </span>
         <a id="logoutBtn" href="index.php?logout">Logout</a>
         <br>
 
-        <div style="width: 500px;height: 300px;margin: auto; padding-top: 100px;background: purple">
-<!--        <div style="width: 500px; height: 300px; margin: auto;display: flex; align-items: center; justify-content: center;">-->
-
-            <span id="leftPart" style="font-size: 40px;font-family: monospace">suh</span>
-            <span id="middlePart"  style="font-size: 40px;font-family: monospace; color: red">dude</span>
-            <span id="rightPart" style="font-size: 40px;font-family: monospace;">last</span>
+        <div>
+        <div style="margin-left: 140px;padding: 50px">
+            <span id="leftPart" style="font-size: 40px;font-family: monospace"></span>
+            <span id="middlePart"  style="font-size: 40px;font-family: monospace; color: red"></span>
+            <span id="rightPart" style="font-size: 40px;font-family: monospace;"></span>
         </div>
+
         <div style="margin: auto;display: flex; align-items: center; justify-content: center;">
             <button id="startBtn" class="btn btn-success">Start</button>
             <button id="pauseBtn" class="btn btn-warning">Pause</button>
