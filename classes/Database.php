@@ -16,7 +16,7 @@ class Database {
         $dsn = 'pgsql:dbname=homestead;host=localhost';
         $user = 'homestead';
         $password = 'secret';
-        $users = [];
+
 
         try {
             $this->pdo = new PDO($dsn, $user, $password);
@@ -202,6 +202,16 @@ class Database {
 
         $stmt = $this->pdo->prepare("UPDATE USERS set book_line_id = ?, read_speed = ? WHERE email = ?;");
         if ($users = $stmt->execute([$book_line_id, $read_speed, $user_email])) {
+            $result = $stmt->fetch();
+            return $result;
+        }
+
+        return null;
+    }
+
+    function updateUserReadSpeed($user_email, $read_speed){
+        $stmt = $this->pdo->prepare("UPDATE USERS set read_speed = ? WHERE email = ?;");
+        if ($users = $stmt->execute([$read_speed, $user_email])) {
             $result = $stmt->fetch();
             return $result;
         }

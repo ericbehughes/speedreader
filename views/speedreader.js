@@ -10,29 +10,26 @@
  * @type {{init}}
  */
 var speedReader = (function () {
-    var getCurrentWord = function (currentLine) {
-        currentLineAsArray = currentLine.split(" ");
+    var getCurrentWord = function () {
+
         var i = 0;
-        if (typeof currentLine === 'string') {
             intervalBetweenWordDisplay = setInterval(function () {
-                if (i < currentLineAsArray.length - 1) {
+                if (i < currentLineAsArray.length ) {
                     currentWord.textContent = currentLineAsArray[i];
                     console.log(i);
                     i++;
                 }
-                else {
-                    clearInterval(intervalBetweenWordDisplay);
-                    console.log('fetch new line');
+
+                if (i == currentLineAsArray.length){
+                    i = 0;
                     ++currentLineID;
-                    onStartClick();
-
-                    //alert('interval over');
-                    //getLineFromDB();
-
+                    getLineFromDB();
                 }
+
             }, 60 / readSpeed* 1000);
 
-        }
+
+
     };
 
     // ajax call using jQuery
@@ -47,9 +44,10 @@ var speedReader = (function () {
 
 
     var onPauseClick = function () {
+        clearInterval(intervalBetweenWordDisplay);
         console.log("onPause currentLineID" + currentLineID);
         updateBookIDAndReadSpeed();
-        clearInterval(intervalBetweenWordDisplay);
+
 
     };
 
@@ -70,7 +68,8 @@ var speedReader = (function () {
             dataType: "html",
             success: function (msg) {
                 currentLine = msg;
-                getCurrentWord(msg);
+                currentLineAsArray = currentLine.split(" ");
+
 
             },
             error: function (xhr, status, errorThrown) {
@@ -82,14 +81,38 @@ var speedReader = (function () {
             }
 
         });
-    }
+    };
+
+
+    var updateSpeedToDB = function (){
+        $.ajax({
+            type: "GET",
+            url: "book.php",
+            data: 'speed='+readSpeed,
+            dataType: "html",
+            success: function (msg) {
+
+                console.log('updated db with new speed successful ');
+
+            },
+            error: function (xhr, status, errorThrown) {
+
+                alert("Sorry, there was a problem retrieving the book!");
+                console.log("Error: " + errorThrown);
+                console.log("Status: " + status);
+                console.dir(xhr);
+            }
+
+        });
+    };
 
 
     var onChangeReadSpeedClick = function (e) {
         readSpeed = $(e.target).text();
         document.cookie = 'user_read_speed=' + $(e.target).text();
-
+        clearInterval(intervalBetweenWordDisplay);
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
+        updateSpeedToDB();
         updateBookIDAndReadSpeed();
         console.log(document.cookie);
     };
@@ -165,7 +188,8 @@ var speedReader = (function () {
         }
 
         $("#readSpeedBtn").text("Read Speed " + readSpeed);
-        currentLine = getLineFromDB();
+        getLineFromDB();
+        getCurrentWord();
         $(currentWord).text()
 
 
