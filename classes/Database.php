@@ -13,9 +13,7 @@ class Database {
 
     function __construct() {
 
-        $dsn = 'pgsql:dbname=homestead;host=localhost';
-        $user = 'homestead';
-        $password = 'secret';
+
 
 
         try {
