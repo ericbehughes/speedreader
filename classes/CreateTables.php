@@ -6,6 +6,5 @@
  * Time: 7:38 PM
  */
 
-$dsn = 'pgsql:dbname=homestead;host=localhost';
-$user = 'homestead';
-$password = 'secret';
+$db = new Database();
+$db->loadLinesIntoBookTable();

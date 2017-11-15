@@ -13,13 +13,24 @@ class Database {
 
     function __construct() {
 
+        $dbName = "deguuhfndfrfhc";
+        $port = "5432";
+        $dsn = "pgsql:dbname= . $dbName . host= ec2-54-221-212-208.compute-1.amazonaws.com;port=  .$port .;sslmode=require";
+        $user="jctaqifyqumjpu";
+        $password ="2bb4210353be6af9d5b30dd6c4b7558e85ed933c74de91b79d57c1be1c5f5804";
 
+
+
+
+//        DATABASE_DSN = 'pgsql:dbname=dfndkk4du1mbjm;host=ec2-54-163-253-94.compute-1.amazonaws.com;port=5432;sslmode=require';
+//        DATABASE_USER = 'qhsllrrdxlaldt';
+//        DATABASE_PASSWORD = '7e109239a1a0d360611e4b93e26ccf482e27764c6e2038195ec793d85eda4735';
 
 
         try {
             $this->pdo = new PDO($dsn, $user, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //$this->loadLinesIntoBookTable("");
+
 
         } catch (PDOException $e) {
             
@@ -173,7 +184,7 @@ class Database {
         }
     }
 
-    function loadLinesIntoBookTable($path) {
+    function loadLinesIntoBookTable() {
         $path = 'http://www.textfiles.com/etext/FICTION/aesop11.txt';
         $file = fopen($path, "r");
         //$lines = [];
