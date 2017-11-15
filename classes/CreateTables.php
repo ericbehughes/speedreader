@@ -8,4 +8,7 @@
 
 require_once("Database.php");
 $db = new Database();
+
+$db->createBookTable();
 $db->loadLinesIntoBookTable();
+$db->createUsersTable();
