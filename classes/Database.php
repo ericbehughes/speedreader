@@ -33,7 +33,7 @@ class Database {
 
 
         } catch (PDOException $e) {
-            
+            echo $e->getMessage();
         }
     }
 
