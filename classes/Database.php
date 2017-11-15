@@ -15,7 +15,7 @@ class Database {
 
         $dbName = "deguuhfndfrfhc";
         $port = "5432";
-        $dsn = "pgsql:dbname= . $dbName . host=ec2-54-221-212-208.compute-1.amazonaws.com;port=.$port .;sslmode=require";
+        $dsn = "pgsql:dbname=deguuhfndfrfhc;host=ec2-54-221-212-208.compute-1.amazonaws.com;port=.$port.;sslmode=require";
         $user="jctaqifyqumjpu";
         $password ="2bb4210353be6af9d5b30dd6c4b7558e85ed933c74de91b79d57c1be1c5f5804";
 
