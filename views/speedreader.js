@@ -19,11 +19,11 @@ var speedReader = (function () {
                     formatCurrentWordBeforeDisplay();
                     i++;
                 }
-
                 if (i == currentLineAsArray.length){
                     i = 0;
                     ++currentLineID;
                     getLineFromDB();
+                    currentLineAsArray = currentLine.split(" ");
                 }
 
             }, 60 / readSpeed* 1000);
@@ -58,7 +58,7 @@ var speedReader = (function () {
         console.log("onLogoutClick currentLineID" + currentLineID);
         console.log("onLogoutClick currentLineID" + readSpeed);
 
-        document.cookie = 'user_read_speed=' + readSpeed
+        document.cookie = 'user_read_speed=' + readSpeed;
         document.cookie = 'user_book_line_id=' + currentLineID;
 
     };
@@ -70,10 +70,11 @@ var speedReader = (function () {
             data: 'id=' + currentLineID,
             dataType: "html",
             success: function (msg) {
+                console.log(msg);
                 currentLine = msg;
+                
             },
             error: function (xhr, status, errorThrown) {
-
                 alert("Sorry, there was a problem retrieving the book!");
                 console.log("Error: " + errorThrown);
                 console.log("Status: " + status);
@@ -155,7 +156,7 @@ var speedReader = (function () {
     
     
     var formatCurrentWordBeforeDisplay = function () {
-        console.log(currentWord);
+
         var length = currentWord.length;
 
         if (length == 1){
@@ -194,26 +195,7 @@ var speedReader = (function () {
 
     };
         
-    
 
-    /**
-     * 
-     * -	When displaying each token:
-     o	choose a monospaced font
-     o	have the text left-justified
-     o	choose a focus letter based off the length of the token and “center” 
-     the word around the focus letter (not really centered, see algorithm below):
-     length = 1 => 1st letter    e.g.: ____a or 4 spaces before
-     length = 2-5 => 2nd letter  e.g.: ___four or 3 spaces before
-     e.g.: ___latch or 3 spaces before
-     length = 6-9 => third letter      __embassy 2 spaces
-     length = 10-13 => fourth letter   _playground 1 spaces
-     length >13 => fifth letter        acknowledgement no spaces
-
-     * 
-     * 
-     * 
-     */
 
     var currentLine;
     var readSpeed;
@@ -232,7 +214,7 @@ var speedReader = (function () {
 
     var init = function () {
 
-        currentLine = 'this is some sample text to run through in order to test the speed reader.';
+        currentLine = '';
         readSpeed = 100;
         startBtn = document.getElementById('startBtn');
         pauseBtn = document.getElementById('pauseBtn');
