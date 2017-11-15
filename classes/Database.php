@@ -158,7 +158,7 @@ class Database {
         // create table
         $stmt = $this->pdo->prepare('CREATE TABLE IF NOT EXISTS BOOK(
                 id SERIAL PRIMARY KEY,
-                line unlimited varchar NOT NULL);');
+                line varchar(max) NOT NULL);');
         $stmt->execute();
     }
 
