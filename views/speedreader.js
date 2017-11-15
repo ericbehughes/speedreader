@@ -32,6 +32,8 @@ var speedReader = (function () {
 
     };
 
+
+
     // ajax call using jQuery
     var onStartClick = function () {
         console.log('inside on start click');

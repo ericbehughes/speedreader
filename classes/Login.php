@@ -96,16 +96,20 @@ class Login {
     {
         // delete the session of the user
         //update users information from session
-        $user_email = $_SESSION['user_email'];
-        $user_book_line_id =$_COOKIE['user_book_line_id'];
-        $user_read_speed =$_COOKIE['user_read_speed'];
+        if (isset($_SESSION['user_email']) == true){
+            $user_email = $_SESSION['user_email'];
+            $user_book_line_id =$_COOKIE['user_book_line_id'];
+            $user_read_speed =$_COOKIE['user_read_speed'];
 
-        $userTemp = $this->db_connection->createUserFromEmail($user_email);
+            $userTemp = $this->db_connection->createUserFromEmail($user_email);
 
-        if ($userTemp->getBookLineId() !== $user_book_line_id
-            || $userTemp->getReadSpeed() !== $user_read_speed){
-            $this->db_connection->updateUserOnLogout($user_email,$user_book_line_id, $user_read_speed);
+            if ($userTemp->getBookLineId() !== $user_book_line_id
+                || $userTemp->getReadSpeed() !== $user_read_speed){
+                $this->db_connection->updateUserOnLogout($user_email,$user_book_line_id, $user_read_speed);
+            }
         }
+
+
 
         $_SESSION = array();
         session_destroy();
