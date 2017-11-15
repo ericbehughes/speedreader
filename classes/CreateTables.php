@@ -6,5 +6,6 @@
  * Time: 7:38 PM
  */
 
+require_once("classes/Database.php");
 $db = new Database();
 $db->loadLinesIntoBookTable();
